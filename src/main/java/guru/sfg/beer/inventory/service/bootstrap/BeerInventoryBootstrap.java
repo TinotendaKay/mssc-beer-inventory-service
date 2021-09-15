@@ -54,6 +54,6 @@ public class BeerInventoryBootstrap implements CommandLineRunner {
                 .quantityOnHand(50)
                 .build());
 
-        log.debug("Loaded Inventory. Record count: " + beerInventoryRepository.count());
+        log.debug("******************Loaded Inventory. Record count: " + beerInventoryRepository.count());
     }
 }

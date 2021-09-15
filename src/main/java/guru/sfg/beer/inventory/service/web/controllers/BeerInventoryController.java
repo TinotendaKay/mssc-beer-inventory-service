@@ -1,10 +1,13 @@
 package guru.sfg.beer.inventory.service.web.controllers;
 
+import guru.sfg.beer.inventory.service.bootstrap.BeerInventoryBootstrap;
 import guru.sfg.beer.inventory.service.repositories.BeerInventoryRepository;
 import guru.sfg.beer.inventory.service.web.mappers.BeerInventoryMapper;
 import guru.sfg.beer.inventory.service.web.model.BeerInventoryDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +35,10 @@ public class BeerInventoryController {
                 .stream()
                 .map(beerInventoryMapper::beerInventoryToBeerInventoryDto)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/ping")
+    public ResponseEntity<String> ping() {
+        return new ResponseEntity<>("Pong", HttpStatus.OK) ;
     }
 }
